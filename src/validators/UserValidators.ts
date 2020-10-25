@@ -9,8 +9,9 @@ export class UserValidators {
         return [
             body('username', 'Username is Required').isString(),
             body('email', 'Email is Required').isEmail(),
-            body('password').custom((value,req:any) => {       
-                if (req.body.email) {
+            body('password').custom((value,request:any) => { 
+                console.log('request',request.req.body.email);      
+                if (request.req.body.email) {
                     return true
                 }
                 else {
